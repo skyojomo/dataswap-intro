@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Data Swap — Infrastructure for Nigeria's Data Economy</title>
-    <meta name="description" content="Peer-to-peer infrastructure layer enabling safe data swaps in Nigeria. Coming soon.">
+    <title>Data Swap — Infrastructure for Nigeria's Secondary Mobile Data Economy</title>
+    <meta name="description" content="Peer-to-peer marketplace infrastructure enabling secure mobile data exchange in Nigeria. Revenue-first, compliance-aware, built for 2026 regulatory reality.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -24,6 +24,7 @@
             --light-gray: #e5e5e5;
             --accent: #0052cc;
             --off-white: #fafafa;
+            --green: #00a86b;
         }
 
         body {
@@ -36,7 +37,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Animated gradient background */
         .bg-gradient {
             position: fixed;
             top: 0;
@@ -64,9 +64,8 @@
             padding: 0 24px;
         }
 
-        /* Header */
         header {
-            padding: 40px 0 80px;
+            padding: 40px 0 60px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             animation: fadeInDown 0.8s ease;
         }
@@ -79,52 +78,58 @@
             text-transform: uppercase;
         }
 
-        .status-badge {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 6px 12px;
-            background: rgba(0, 82, 204, 0.1);
-            border: 1px solid rgba(0, 82, 204, 0.3);
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--accent);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        /* Hero */
         .hero {
-            padding: 80px 0 60px;
+            padding: 60px 0;
             animation: fadeInUp 0.8s ease 0.2s both;
         }
 
         h1 {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(36px, 8vw, 56px);
-            line-height: 1.1;
+            font-size: clamp(32px, 7vw, 48px);
+            line-height: 1.2;
             font-weight: 400;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             letter-spacing: -0.02em;
         }
 
-        h1 .highlight {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--gray);
+        .value-prop {
+            font-size: 17px;
             line-height: 1.7;
-            margin-bottom: 40px;
+            color: var(--off-white);
+            margin-bottom: 24px;
         }
 
-        /* Problem Statement */
-        .problem {
+        .value-prop strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .principle-list {
+            margin-top: 24px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .principle-list li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        .principle-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .section {
             padding: 60px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            animation: fadeInUp 0.8s ease 0.4s both;
+            animation: fadeInUp 0.8s ease both;
         }
 
         .section-label {
@@ -136,18 +141,25 @@
             margin-bottom: 24px;
         }
 
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
         .stat-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin: 40px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
         }
 
         .stat {
             padding: 24px;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
@@ -158,113 +170,186 @@
         }
 
         .stat-number {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--accent);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             line-height: 1;
         }
 
         .stat-label {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--gray);
             line-height: 1.5;
         }
 
-        /* Solution */
-        .solution {
-            padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            animation: fadeInUp 0.8s ease 0.6s both;
+        .body-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 20px;
         }
 
-        .solution-grid {
-            display: grid;
-            gap: 20px;
-            margin-top: 32px;
-        }
-
-        .feature {
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .feature:last-child {
-            border-bottom: none;
-        }
-
-        .feature-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .body-text strong {
             color: var(--off-white);
+            font-weight: 600;
         }
 
-        .feature-desc {
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 24px 0;
+        }
+
+        .bullet-list li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .highlight-box {
+            background: rgba(0, 82, 204, 0.05);
+            border-left: 3px solid var(--accent);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--off-white);
+            margin: 0;
+        }
+
+        .pricing-table {
+            display: grid;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+        }
+
+        .pricing-tier {
             font-size: 14px;
             color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .feature-highlight {
-            color: var(--accent);
             font-weight: 500;
         }
 
-        /* Timeline */
-        .timeline {
-            padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            animation: fadeInUp 0.8s ease 0.8s both;
+        .pricing-amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Space Grotesk', monospace;
         }
 
-        .timeline-item {
+        .financial-snapshot {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .metric-row {
             display: flex;
-            gap: 20px;
-            margin-bottom: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .timeline-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .timeline-marker {
-            flex-shrink: 0;
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
+        .metric-row:last-child {
+            border-bottom: 2px solid var(--accent);
+            padding-top: 16px;
             margin-top: 8px;
-            box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.1);
         }
 
-        .timeline-content h3 {
+        .metric-label {
             font-size: 14px;
+            color: var(--gray);
+        }
+
+        .metric-value {
+            font-size: 15px;
             font-weight: 600;
             color: var(--off-white);
-            margin-bottom: 6px;
         }
 
-        .timeline-content p {
+        .metric-row:last-child .metric-value {
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .gtm-grid {
+            display: grid;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .gtm-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+        }
+
+        .gtm-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--off-white);
+            margin-bottom: 8px;
+        }
+
+        .gtm-desc {
             font-size: 13px;
             color: var(--gray);
             line-height: 1.6;
         }
 
-        /* Founder */
-        .founder {
-            padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            animation: fadeInUp 0.8s ease 1s both;
+        .status-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+
+        .status-list li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .status-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 16px;
         }
 
         .founder-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             padding: 32px;
             margin-top: 32px;
@@ -282,61 +367,63 @@
             margin-bottom: 20px;
         }
 
-        .founder-bio {
+        .founder-companies {
             font-size: 14px;
+            color: var(--off-white);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .founder-expertise {
+            font-size: 13px;
             color: var(--gray);
             line-height: 1.7;
         }
 
-        .founder-bio strong {
+        .founder-expertise strong {
             color: var(--off-white);
-            font-weight: 500;
         }
 
-        /* Contact */
-        .contact {
-            padding: 60px 0 80px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            animation: fadeInUp 0.8s ease 1.2s both;
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.1), rgba(0, 102, 255, 0.05));
+            border: 1px solid rgba(0, 82, 204, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
         }
 
-        .contact-info {
-            margin-top: 32px;
+        .cta-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--off-white);
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 0;
-            font-size: 15px;
+        .cta-subtitle {
+            font-size: 14px;
             color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
             text-decoration: none;
-            transition: color 0.2s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
         }
 
-        .contact-item:hover {
-            color: var(--accent);
+        .cta-button:hover {
+            background: #0066ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
         }
 
-        .contact-icon {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        /* Footer */
         footer {
             padding: 40px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -345,7 +432,6 @@
             color: var(--gray);
         }
 
-        /* Animations */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -368,38 +454,37 @@
             }
         }
 
-        /* Mobile optimizations */
         @media (max-width: 640px) {
             .container {
                 padding: 0 20px;
             }
 
             header {
-                padding: 32px 0 60px;
+                padding: 32px 0 48px;
             }
 
             .hero {
-                padding: 60px 0 40px;
+                padding: 48px 0;
+            }
+
+            .section {
+                padding: 48px 0;
             }
 
             .stat-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .problem, .solution, .timeline, .founder, .contact {
-                padding: 48px 0;
+            .financial-snapshot {
+                padding: 24px;
+            }
+
+            .cta-section {
+                padding: 32px 24px;
             }
 
             .founder-card {
                 padding: 24px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .bg-gradient {
-                display: none;
             }
         }
     </style>
@@ -408,37 +493,39 @@
     <div class="bg-gradient"></div>
     
     <div class="container">
-        <!-- Header -->
         <header>
             <div class="logo">Data Swap</div>
-            <span class="status-badge">Building Now</span>
         </header>
 
         <!-- Hero -->
         <section class="hero">
-            <h1>
-                Peer-to-peer infrastructure for Nigeria's <span class="highlight">data economy</span>
-            </h1>
-            <p class="subtitle">
-                We're building the trust layer for safe, structured data swaps. 
-                No wallet. No escrow. Just infrastructure.
+            <h1>Infrastructure for Nigeria's Secondary Mobile Data Economy</h1>
+            
+            <p class="value-prop">
+                Data Swap is a <strong>peer-to-peer marketplace infrastructure</strong> that enables 
+                Nigerians to securely exchange unused mobile data — turning wasted data into real value.
+            </p>
+
+            <ul class="principle-list">
+                <li>We don't sell data</li>
+                <li>We don't resell telecom services</li>
+                <li>We don't hold user funds</li>
+            </ul>
+
+            <p class="value-prop" style="margin-top: 24px;">
+                We provide the <strong>discovery, trust, and confirmation layer</strong> that makes 
+                data swaps safe and repeatable.
             </p>
         </section>
 
         <!-- Problem -->
-        <section class="problem">
-            <div class="section-label">The Problem</div>
+        <section class="section" style="animation-delay: 0.3s;">
+            <div class="section-label">The Problem (2026 Reality)</div>
             
-            <p style="font-size: 16px; line-height: 1.7; color: var(--gray); margin-bottom: 32px;">
-                Nigerians waste <strong style="color: var(--off-white);">₦288 billion annually</strong> 
-                on unused mobile data. 40% of purchased data expires due to night-only plans, 
-                wrong networks, or surplus capacity.
-            </p>
-
             <div class="stat-grid">
                 <div class="stat">
                     <div class="stat-number">₦721B</div>
-                    <div class="stat-label">Monthly data spend in Nigeria</div>
+                    <div class="stat-label">Monthly mobile data spend in Nigeria</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number">+122%</div>
@@ -450,178 +537,252 @@
                 </div>
                 <div class="stat">
                     <div class="stat-number">~40%</div>
-                    <div class="stat-label">Of data expires unused</div>
+                    <div class="stat-label">Of purchased data expires unused</div>
                 </div>
             </div>
 
-            <p style="font-size: 14px; line-height: 1.7; color: var(--gray); margin-top: 32px;">
-                Users already swap data informally on WhatsApp and Telegram, 
-                but these swaps are unstructured, unsafe, and unreliable. 
-                The demand exists. The infrastructure doesn't.
+            <p class="body-text">
+                <strong>≈ ₦288B wasted annually</strong>
+            </p>
+
+            <p class="body-text">
+                Millions of Nigerians regularly buy data bundles they cannot fully use — due to 
+                night-only plans, surplus bundles, or expiration rules.
+            </p>
+
+            <p class="body-text">
+                While informal data swaps already happen on WhatsApp and Telegram, they are:
+            </p>
+
+            <ul class="bullet-list">
+                <li>Unstructured</li>
+                <li>High-risk</li>
+                <li>Trust-dependent</li>
+                <li>Not scalable</li>
+            </ul>
+
+            <p class="body-text">
+                This leads to <strong>massive, recurring waste</strong>.
             </p>
         </section>
 
         <!-- Solution -->
-        <section class="solution">
-            <div class="section-label">Our Solution</div>
+        <section class="section" style="animation-delay: 0.4s;">
+            <div class="section-label">The Solution</div>
+            <h2>Pure-play infrastructure layer for peer-to-peer mobile data exchange</h2>
+
+            <p class="body-text"><strong>How it works:</strong></p>
+            <ul class="bullet-list">
+                <li>Users list unused data they want to swap</li>
+                <li>Others match with compatible offers</li>
+                <li>Data is transferred directly via existing telecom USSD mechanisms</li>
+                <li>Both parties confirm completion</li>
+            </ul>
+
+            <p class="body-text" style="margin-top: 32px;"><strong>Key design principles:</strong></p>
+            <ul class="bullet-list">
+                <li>Intra-network swaps at launch (MTN↔MTN, Airtel↔Airtel, etc.)</li>
+                <li>No wallet, no escrow, no custody</li>
+                <li>No resale of telecom services</li>
+                <li>Platform only facilitates discovery, matching, and confirmation</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>
+                    This architecture dramatically reduces regulatory friction and accelerates time-to-market.
+                </p>
+            </div>
+        </section>
+
+        <!-- Why Now -->
+        <section class="section" style="animation-delay: 0.5s;">
+            <div class="section-label">Why Now</div>
             
-            <div class="solution-grid">
-                <div class="feature">
-                    <div class="feature-title">Intra-network swaps</div>
-                    <div class="feature-desc">
-                        Users swap data directly via existing telecom USSD 
-                        (MTN↔MTN, Airtel↔Airtel, etc.). We don't touch the data.
+            <ul class="bullet-list">
+                <li>Data costs are rising faster than income</li>
+                <li>Users are already optimizing data informally</li>
+                <li>Fintech regulation is tightening — favoring no-custody platforms</li>
+                <li>Built privacy-first and aligned with Nigeria's Data Protection Act (NDPA)</li>
+            </ul>
+
+            <p class="body-text" style="margin-top: 24px;">
+                Data Swap is designed specifically for <strong>2026 regulatory reality</strong>, 
+                not legacy assumptions.
+            </p>
+        </section>
+
+        <!-- Business Model -->
+        <section class="section" style="animation-delay: 0.6s;">
+            <div class="section-label">Business Model</div>
+            <h2>Simple, transparent pricing</h2>
+
+            <p class="body-text">
+                Data Swap charges a small platform service fee per successful swap:
+            </p>
+
+            <div class="pricing-table">
+                <div class="pricing-row">
+                    <span class="pricing-tier">< 1GB</span>
+                    <span class="pricing-amount">₦20</span>
+                </div>
+                <div class="pricing-row">
+                    <span class="pricing-tier">1–4 GB</span>
+                    <span class="pricing-amount">₦30</span>
+                </div>
+                <div class="pricing-row">
+                    <span class="pricing-tier">≥ 5 GB</span>
+                    <span class="pricing-amount">₦50</span>
+                </div>
+            </div>
+
+            <p class="body-text">
+                Fees are collected via one-off payment processing (e.g. Paystack / Flutterwave)<br>
+                <strong>Only charged after both users confirm completion</strong>
+            </p>
+
+            <div class="highlight-box">
+                <p>
+                    → No stored balances<br>
+                    → No escrow<br>
+                    → No custody of funds or data
+                </p>
+            </div>
+        </section>
+
+        <!-- Financial Snapshot -->
+        <section class="section" style="animation-delay: 0.7s;">
+            <div class="section-label">Financial Snapshot — Year 1 (Nigeria Only)</div>
+            
+            <p class="body-text">
+                Base-case assumptions (net of payment gateway fees):
+            </p>
+
+            <div class="financial-snapshot">
+                <div class="metric-row">
+                    <span class="metric-label">Average fee per swap</span>
+                    <span class="metric-value">₦35</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Target volume</span>
+                    <span class="metric-value">30,000 swaps/day</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Monthly swaps</span>
+                    <span class="metric-value">~900,000</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Monthly revenue</span>
+                    <span class="metric-value">~₦31.5M (~$21K)</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Annual revenue</span>
+                    <span class="metric-value">~$250K</span>
+                </div>
+            </div>
+
+            <p class="body-text">
+                This represents <strong>&lt;0.03% of Nigeria's internet subscribers</strong> transacting daily.
+            </p>
+
+            <div class="highlight-box">
+                <p>Revenue scales linearly with volume, not headcount.</p>
+            </div>
+        </section>
+
+        <!-- Go-to-Market -->
+        <section class="section" style="animation-delay: 0.8s;">
+            <div class="section-label">Go-to-Market Strategy</div>
+            <h2>Campus-first launch</h2>
+
+            <div class="gtm-grid">
+                <div class="gtm-item">
+                    <div class="gtm-title">Target</div>
+                    <div class="gtm-desc">
+                        University students are the heaviest data users with strong peer trust networks 
+                        and high repeat behavior
                     </div>
                 </div>
-
-                <div class="feature">
-                    <div class="feature-title">Simple pricing</div>
-                    <div class="feature-desc">
-                        Flat platform fee of <span class="feature-highlight">₦20-50 per successful swap</span> 
-                        based on data size. Charged only after both users confirm completion.
+                <div class="gtm-item">
+                    <div class="gtm-title">Distribution</div>
+                    <div class="gtm-desc">
+                        Campus ambassadors seed liquidity. Zero paid marketing in early phase. 
+                        Focus on retention over downloads.
                     </div>
                 </div>
-
-                <div class="feature">
-                    <div class="feature-title">No wallet, no escrow</div>
-                    <div class="feature-desc">
-                        We provide the <span class="feature-highlight">discovery, matching, and confirmation layer</span> only. 
-                        This structure avoids fintech and telecom licensing requirements.
-                    </div>
-                </div>
-
-                <div class="feature">
-                    <div class="feature-title">Campus-first distribution</div>
-                    <div class="feature-desc">
-                        Launching at 5 pilot universities with student ambassadors who get 
-                        free swaps + ₦50 per referral. CAC: ₦200-500 vs ₦2,000+ for paid ads.
+                <div class="gtm-item">
+                    <div class="gtm-title">Winning metric</div>
+                    <div class="gtm-desc">
+                        Average active user completes <strong>4+ swaps per month</strong>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Timeline -->
-        <section class="timeline">
-            <div class="section-label">What's Next</div>
+        <!-- Progress -->
+        <section class="section" style="animation-delay: 0.9s;">
+            <div class="section-label">Progress & Status</div>
             
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>Now — Pre-MVP</h3>
-                    <p>
-                        Technical specifications complete (FlutterFlow PWA + Supabase backend). 
-                        Payment integration tested. 15 beta testers recruited. 
-                        First 3 proof swaps completed with 100% success rate.
-                    </p>
-                </div>
-            </div>
+            <ul class="status-list">
+                <li>MVP Progressive Web App (PWA) in build</li>
+                <li>Core flows designed and validated</li>
+                <li>Payment integration tested</li>
+                <li>Campus pilot preparing for launch</li>
+            </ul>
 
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>Q1 2025 — 3-Month Pilot</h3>
-                    <p>
-                        Launch at 5 universities (UI, UNN, OAU, UNILAG, UNIBEN). 
-                        Target: 500 users, 1,000+ swaps, >80% completion rate. 
-                        Goal: Prove unit economics.
-                    </p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>Mid-2025 — National Expansion</h3>
-                    <p>
-                        Replicate to 20 campuses, then 50. 
-                        Path to $250K ARR in Year 1 with 30,000 swaps/day 
-                        (less than 0.03% of Nigeria's internet subscribers).
-                    </p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>2026+ — Pan-African</h3>
-                    <p>
-                        Same model works across Africa (Ghana, Kenya, South Africa). 
-                        Platform enables adjacent verticals: bill-splitting, group buying, 
-                        micro-financial services for students.
-                    </p>
-                </div>
-            </div>
+            <p class="body-text" style="margin-top: 24px;">
+                Initial focus: <strong>prove repeat usage, not vanity metrics</strong>.
+            </p>
         </section>
 
         <!-- Founder -->
-        <section class="founder">
-            <div class="section-label">Who's Building This</div>
+        <section class="section" style="animation-delay: 1s;">
+            <div class="section-label">Founder</div>
             
             <div class="founder-card">
                 <div class="founder-name">Ola Ojomo</div>
-                <div class="founder-title">Founder</div>
-                <div class="founder-bio">
-                    Software and QA Engineer with experience building systems 
-                    across <strong>Google, Facebook, Barclays Bank, UBS, 
-                    Swiss Stock Exchange</strong>, and currently the 
-                    <strong>European Investment Bank (EIB)</strong>.
-                    <br><br>
-                    Deep expertise in data integrity, compliance, and building 
-                    reliable infrastructure in highly regulated environments. 
-                    Execution-first, capital-efficient, focused on proving 
-                    unit economics before scaling.
+                <div class="founder-title">Founder & CEO</div>
+                <div class="founder-companies">
+                    Software Engineer with experience building and validating systems in highly 
+                    regulated environments across: <strong>Google, Facebook, Barclays Bank, UBS, 
+                    Swiss Stock Exchange</strong>, and <strong>European Investment Bank</strong> (current).
+                </div>
+                <div class="founder-expertise">
+                    Execution-first founder with deep expertise in:<br>
+                    • Data integrity<br>
+                    • System reliability<br>
+                    • Compliance-aware platform design
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section class="contact">
-            <div class="section-label">Get in Touch</div>
+        <!-- What's Next -->
+        <section class="section" style="animation-delay: 1.1s;">
+            <div class="section-label">What's Next</div>
             
-            <p style="font-size: 15px; line-height: 1.7; color: var(--gray); margin-top: 32px; margin-bottom: 32px;">
-                Currently raising a small pre-seed round (₦5M) to fund the 3-month pilot. 
-                If you're interested in learning more or staying updated, reach out:
-            </p>
+            <ul class="bullet-list">
+                <li>Complete MVP</li>
+                <li>Launch campus pilot</li>
+                <li>Validate retention and unit economics</li>
+                <li>Scale cautiously with real usage data</li>
+            </ul>
+        </section>
 
-            <div class="contact-info">
-                <a href="mailto:olaojomo@dataswaptech.com" class="contact-item">
-                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    olaojomo@dataswaptech.com
-                </a>
-                
-                <a href="tel:+447398763126" class="contact-item">
-                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                    +44 7398 763126
+        <!-- CTA -->
+        <section class="section" style="animation-delay: 1.2s; border-top: none;">
+            <div class="cta-section">
+                <div class="cta-title">Get in Touch</div>
+                <div class="cta-subtitle">
+                    Request the full pitch deck & financial model
+                </div>
+                <a href="mailto:olaojomo@dataswaptech.com?subject=Data%20Swap%20-%20Pitch%20Deck%20Request" class="cta-button">
+                    📩 olaojomo@dataswaptech.com
                 </a>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer>
-            <p>Data Swap &copy; 2025 &nbsp;·&nbsp; Infrastructure for Nigeria's data economy</p>
+            <p>Data Swap &copy; 2026 &nbsp;·&nbsp; Infrastructure for Nigeria's Secondary Mobile Data Economy</p>
         </footer>
     </div>
-
-    <script>
-        // Add smooth scroll behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-    </script>
 </body>
 </html>
