@@ -170,19 +170,18 @@
       <h1>Infrastructure for Nigeria's Secondary Mobile Data Economy</h1>
 
       <p class="value-prop">
-        Data Swap is a <strong>peer-to-peer marketplace infrastructure</strong> that enables
-        Nigerians to securely exchange unused mobile data — turning wasted data into real value.
-      </p>
+                Data Swap is the <strong>interoperability protocol</strong> for Nigeria’s secondary mobile data economy —
+                helping people exchange unused mobile data before it expires, without changing telco rules.
+            </p>
 
-      <ul class="principle-list">
+            <ul class="principle-list">
         <li>We don't sell data</li>
         <li>We don't resell telecom services</li>
         <li>We don't hold user funds</li>
       </ul>
 
       <p class="value-prop" style="margin-top:24px;">
-        We provide the <strong>discovery, trust, and confirmation layer</strong> that makes
-        data swaps safe and repeatable.
+        We provide the <strong>discovery, trust, and confirmation layer</strong> — and <strong>user-directed execution</strong>: we provide the “map,” but the user holds the “keys.”
       </p>
     </section>
 
@@ -198,6 +197,13 @@
       </div>
 
       <p class="body-text"><strong>≈ ₦288B wasted annually</strong></p>
+
+            <p class="body-text">
+                <strong>2026 market reality:</strong> persistent inflation, 5G expansion, and evolving pricing constraints
+                (including potential <strong>data floor-price adjustments</strong>) are increasing “emergency top-up” behavior and
+                demand for micro-optimizations.
+            </p>
+
 
       <p class="body-text">
         Millions of Nigerians regularly buy data bundles they cannot fully use — due to
@@ -253,9 +259,10 @@
       </p>
 
       <ul class="bullet-list">
-        <li><strong>No automation:</strong> we do not trigger transfers on a user’s behalf</li>
+        <li><strong>User-Directed Execution:</strong> we provide the “map,” but the user holds the “keys.” We do not trigger transfers on a user’s behalf.</li>
         <li><strong>No resale:</strong> we do not sell or custody data or funds</li>
         <li><strong>No network access:</strong> we don’t require telco APIs or backend integration</li>
+                <li><strong>NDPA/NDPC aligned:</strong> we do not store phone numbers embedded in USSD strings or transfer menus.</li>
       </ul>
 
       <div class="highlight-box">
@@ -266,6 +273,84 @@
       </div>
     </section>
 
+                <div class="highlight-box" style="margin-top: 24px;">
+                    <p>
+                        <strong>Telco-aligned positioning:</strong> Data Swap increases perceived value of staying on a network (intra-network liquidity),
+                        supports retention (“SIM stickiness”), and reduces churn by helping users recover value from leftover bundles.
+                    </p>
+                </div>
+
+
+    <!-- Data Validity & Expiry (NEW) -->
+    <section class="section" style="animation-delay:.46s;">
+      <div class="section-label">Data Validity & Expiry</div>
+      <h2>Expiry rules stay exactly the same</h2>
+
+      <p class="body-text">
+        Data Swap does <strong>not</strong> reset, extend, or modify data validity.
+        Any data exchanged retains the <strong>original expiry date</strong> set by the telecom operator.
+      </p>
+
+      <div class="highlight-box">
+        <p>
+          Example: If a user transfers <strong>3GB</strong> with <strong>3 days</strong> remaining,
+          the recipient still has <strong>3 days</strong> to use it — expiry does not change after transfer.
+        </p>
+      </div>
+
+      <p class="body-text">
+        This keeps the platform fully aligned with telco policies and strengthens the “no-resale / no-custody” architecture.
+        We facilitate <strong>who uses the data</strong>, not <strong>how long it lasts</strong>.
+      </p>
+    </section>
+
+    <!-- Trust & Conflict Resolution (NEW) -->
+    <section class="section" style="animation-delay:.47s;">
+      <div class="section-label">Trust & Conflict Resolution</div>
+      <h2>Solving the “bad actor” problem without escrow</h2>
+
+      <p class="body-text">
+        Data Swap operates without custody by combining <strong>mutual confirmation</strong> with a lightweight trust layer:
+      </p>
+
+      <ul class="bullet-list">
+        <li><strong>Reputation signals</strong> (account + device level)</li>
+        <li><strong>Progressive penalties</strong> for repeated failures or disputes (rate limits, temporary blocks, removal)</li>
+        <li><strong>Dispute signals</strong> to flag “he said / she said” patterns</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>
+          Roadmap: optional “proof of transfer” (e.g., screenshot verification) can be introduced later as volume grows — without changing the no-custody core.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dispute Resolution (NEW) -->
+    <section class="section" style="animation-delay:.48s;">
+      <div class="section-label">Dispute Resolution</div>
+      <h2>Closing the loop on “he said / she said”</h2>
+
+      <p class="body-text">
+        Without telco APIs or escrow, disputes are handled with a simple, enforcement-first flow that protects honest users while keeping the platform regulatory-lite:
+      </p>
+
+      <ul class="bullet-list">
+        <li><strong>1) Proof Upload:</strong> either party can upload a screenshot of “transfer successful” (SMS / USSD menu / in-app confirmation).</li>
+        <li><strong>2) Reputation Strike:</strong> repeated disputes trigger rate-limits, temporary blocks, then removal.</li>
+        <li><strong>3) Automated Blacklisting:</strong> device + account signals reduce repeat bad-actor attempts.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>
+          <strong>Roadmap:</strong> OCR-style parsing can be introduced after we collect real-world proof formats across MTN/Airtel/Glo/9mobile to reduce false negatives.
+        </p>
+      </div>
+    </section>
+
+
+
+
     <!-- Why Now -->
     <section class="section" style="animation-delay:.5s;">
       <div class="section-label">Why Now</div>
@@ -275,6 +360,7 @@
         <li>Users are already optimizing data informally</li>
         <li>Fintech regulation is tightening — favoring no-custody platforms</li>
         <li>Built privacy-first and aligned with Nigeria's Data Protection Act (NDPA)</li>
+                <li><strong>NDPC-ready:</strong> we operate with minimal data and will register as required as usage scales.</li>
       </ul>
 
       <p class="body-text" style="margin-top:24px;">
@@ -309,12 +395,12 @@
       <p class="body-text">Base-case assumptions (net of payment gateway fees):</p>
 
       <div class="financial-snapshot">
-        <div class="metric-row"><span class="metric-label">Average value per swap (assumption)</span><span class="metric-value">₦200</span></div>
-        <div class="metric-row"><span class="metric-label">Platform fee (15%)</span><span class="metric-value">₦30 per swap</span></div>
-        <div class="metric-row"><span class="metric-label">Target volume</span><span class="metric-value">30,000 swaps/day</span></div>
-        <div class="metric-row"><span class="metric-label">Monthly swaps</span><span class="metric-value">~900,000</span></div>
-        <div class="metric-row"><span class="metric-label">Monthly revenue</span><span class="metric-value">~₦27M (~$18K)</span></div>
-        <div class="metric-row"><span class="metric-label">Annual revenue</span><span class="metric-value">~$216K</span></div>
+        <div class="metric-row"><span class="metric-label">Average value per swap (assumption)</span><span class="metric-value">₦450</span></div>
+        <div class="metric-row"><span class="metric-label">Platform fee (15%)</span><span class="metric-value">₦68 per swap</span></div>
+        <div class="metric-row"><span class="metric-label">U,000 swaps/day</span></div>
+        <div class="metric-row"><span class="metric-label">Monthly swaps</span><span class="metric-value">~750,000</span></div>
+        <div class="metric-row"><span class="metric-label">Monthly revenue</span><span class="metric-value">~₦51M (~$34K)</span></div>
+        <div class="metric-row"><span class="metric-label">Annual revenue</span><span class="metric-value">~$400K</span></div>
       </div>
 
       <p class="body-text">
@@ -327,7 +413,7 @@
     <!-- Go-to-Market -->
     <section class="section" style="animation-delay:.8s;">
       <div class="section-label">Go-to-Market Strategy</div>
-      <h2>Campus-first launch, then expand to all users</h2>
+      <h2>Campus-first wedge, then expand to all users</h2>
 
       <div class="gtm-grid">
         <div class="gtm-item">
@@ -374,6 +460,7 @@
         </div>
         <div class="founder-expertise">
           Execution-first founder with deep expertise in:<br>
+                    • High-concurrency systems<br>
           • Data integrity<br>
           • System reliability<br>
           • Compliance-aware platform design
